@@ -15,7 +15,7 @@ class DailyDigest extends StatelessWidget {
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: kPrimaryColor,
+        scaffoldBackgroundColor: kBackgroundColor,
       ),
     );
   }

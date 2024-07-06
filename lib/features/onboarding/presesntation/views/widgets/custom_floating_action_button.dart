@@ -5,20 +5,19 @@ class CustomFloatingActionButton extends StatelessWidget {
     super.key,
     this.onPressed,
     required this.heroTag,
-    required this.iconData,
+    required this.icon,
   });
   final void Function()? onPressed;
   final String heroTag;
-  final IconData iconData;
+  final Widget icon;
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: onPressed,
       heroTag: heroTag,
-      child: Icon(
-        iconData,
-      ),
+      backgroundColor: Colors.orange,
+      child: icon,
     );
   }
 }

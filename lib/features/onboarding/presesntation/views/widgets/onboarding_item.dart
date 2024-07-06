@@ -1,11 +1,13 @@
-import 'package:daily_digest/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class OnboardingItem extends StatelessWidget {
   const OnboardingItem({
-    super.key,
+    super.key, required this.image, required this.bodyText,
   });
+
+  final String image;
+  final String bodyText;
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +16,15 @@ class OnboardingItem extends StatelessWidget {
         Expanded(
           child: Center(
             child: SvgPicture.asset(
-              Assets.onboarding1,
+              image,
             ),
           ),
         ),
         const SizedBox(
           height: 30,
         ),
-        const Text(
-          'Body of onboarding',
+        Text(
+          bodyText,
           style: TextStyle(
             fontSize: 24,
           ),

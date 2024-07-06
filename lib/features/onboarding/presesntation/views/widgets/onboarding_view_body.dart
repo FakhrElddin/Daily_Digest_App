@@ -1,3 +1,5 @@
+import 'package:daily_digest/core/utils/assets.dart';
+import 'package:daily_digest/features/onboarding/data/models/onboarding_model.dart';
 import 'package:daily_digest/features/onboarding/presesntation/views/widgets/custom_floating_action_button.dart';
 import 'package:daily_digest/features/onboarding/presesntation/views/widgets/custom_smooth_page_indicator.dart';
 import 'package:daily_digest/features/onboarding/presesntation/views/widgets/onboarding_item.dart';
@@ -6,12 +8,25 @@ import 'package:flutter/material.dart';
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
 
+  final List<OnboardingModel> onboardingItems = const [
+    OnboardingModel(
+      svgImage: Assets.onboarding1,
+      bodyText: 'bodyText1',
+    ),
+    OnboardingModel(
+      svgImage: Assets.onboarding2,
+      bodyText: 'bodyText2',
+    ),
+  ];
+
   @override
   State<OnBoardingViewBody> createState() => _OnBoardingViewBodyState();
 }
 
 class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   PageController onboardingController = PageController();
+  bool isLast = false;
+  bool isFirst = true;
   @override
   void dispose() {
     onboardingController.dispose();
@@ -27,9 +42,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             child: PageView.builder(
               controller: onboardingController,
               physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) => const OnboardingItem(),
+              itemBuilder: (context, index) => OnboardingItem(
+                image: widget.onboardingItems[index].svgImage,
+                bodyText: widget.onboardingItems[index].bodyText,
+              ),
               onPageChanged: (value) {},
-              itemCount: 2,
+              itemCount: widget.onboardingItems.length,
             ),
           ),
           const SizedBox(
@@ -55,7 +73,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               ),
               CustomSmoothPageIndicator(
                 onboardingController: onboardingController,
-                count: 2,
+                count: widget.onboardingItems.length,
               ),
               CustomFloatingActionButton(
                 heroTag: 'btn2',
@@ -85,5 +103,3 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
     );
   }
 }
-
-

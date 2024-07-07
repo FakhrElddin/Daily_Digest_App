@@ -1,9 +1,9 @@
 class OnboardingModel {
-  final String svgImage;
+  final String image;
   final String bodyText;
 
   const OnboardingModel({
-    required this.svgImage,
+    required this.image,
     required this.bodyText,
   });
 }

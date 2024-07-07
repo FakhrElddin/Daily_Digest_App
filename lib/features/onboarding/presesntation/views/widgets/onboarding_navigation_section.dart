@@ -42,7 +42,7 @@ class OnboardingNavigationSection extends StatelessWidget {
           },
         ),
         CustomSmoothPageIndicator(
-          onboardingController: onboardingController,
+          controller: onboardingController,
           count: widget.onboardingItems.length,
         ),
         CustomFloatingActionButton(

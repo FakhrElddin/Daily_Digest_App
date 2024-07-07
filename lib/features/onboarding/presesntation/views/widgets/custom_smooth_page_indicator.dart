@@ -5,17 +5,17 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class CustomSmoothPageIndicator extends StatelessWidget {
   const CustomSmoothPageIndicator({
     super.key,
-    required this.onboardingController,
+    required this.controller,
     required this.count,
   });
 
-  final PageController onboardingController;
+  final PageController controller;
   final int count;
 
   @override
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
-      controller: onboardingController,
+      controller: controller,
       count: count,
       effect: const ExpandingDotsEffect(
         activeDotColor: kPrimaryColor,

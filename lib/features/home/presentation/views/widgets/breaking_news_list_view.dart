@@ -1,8 +1,8 @@
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 
-class BreakingNewsListViewItem extends StatelessWidget {
-  const BreakingNewsListViewItem({super.key});
+class BreakingNewsListView extends StatelessWidget {
+  const BreakingNewsListView({super.key});
 
   @override
   Widget build(BuildContext context) {

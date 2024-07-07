@@ -56,6 +56,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 bodyText: widget.onboardingItems[index].bodyText,
               ),
               onPageChanged: (value) {
+
                 handlePageChange(value);
                 setState(() {});
               },
@@ -69,6 +70,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             onboardingController: onboardingController,
             widget: widget,
             btn2Icon: btn2Icon,
+            isLast: isLast,
           ),
           const SizedBox(
             height: 50,

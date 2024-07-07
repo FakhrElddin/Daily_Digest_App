@@ -1,7 +1,11 @@
+import 'package:daily_digest/constants.dart';
+import 'package:daily_digest/core/utils/app_router.dart';
+import 'package:daily_digest/core/utils/cache_helper.dart';
 import 'package:daily_digest/features/onboarding/presesntation/views/widgets/custom_floating_action_button.dart';
 import 'package:daily_digest/features/onboarding/presesntation/views/widgets/custom_smooth_page_indicator.dart';
 import 'package:daily_digest/features/onboarding/presesntation/views/widgets/onboarding_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingNavigationSection extends StatelessWidget {
   const OnboardingNavigationSection({
@@ -9,11 +13,13 @@ class OnboardingNavigationSection extends StatelessWidget {
     required this.onboardingController,
     required this.widget,
     required this.btn2Icon,
+    required this.isLast,
   });
 
   final PageController onboardingController;
   final OnBoardingViewBody widget;
   final IconData btn2Icon;
+  final bool isLast;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +52,12 @@ class OnboardingNavigationSection extends StatelessWidget {
             color: Colors.white,
           ),
           onPressed: () {
+            if (isLast) {
+              CacheHelper.setData(key: onboardingCacheKey, value: true)
+                  .then((value) {
+                GoRouter.of(context).pushReplacement(AppRouter.kSplashView);
+              });
+            }
             onboardingController.nextPage(
               duration: const Duration(
                 microseconds: 750,

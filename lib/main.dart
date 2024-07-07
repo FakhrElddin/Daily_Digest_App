@@ -1,8 +1,12 @@
 import 'package:daily_digest/constants.dart';
 import 'package:daily_digest/core/utils/app_router.dart';
+import 'package:daily_digest/core/utils/cache_helper.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
+
   runApp(const DailyDigest());
 }
 

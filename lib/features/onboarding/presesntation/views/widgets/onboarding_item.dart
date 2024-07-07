@@ -3,7 +3,9 @@ import 'package:flutter_svg/svg.dart';
 
 class OnboardingItem extends StatelessWidget {
   const OnboardingItem({
-    super.key, required this.image, required this.bodyText,
+    super.key,
+    required this.image,
+    required this.bodyText,
   });
 
   final String image;
@@ -20,13 +22,14 @@ class OnboardingItem extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 30,
-        ),
-        Text(
-          bodyText,
-          style: TextStyle(
-            fontSize: 24,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            bodyText,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 24,
+            ),
           ),
         ),
       ],

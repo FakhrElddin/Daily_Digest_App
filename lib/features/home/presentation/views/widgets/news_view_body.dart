@@ -3,8 +3,8 @@ import 'package:daily_digest/features/home/presentation/views/widgets/custom_app
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+class NewsViewBody extends StatelessWidget {
+  const NewsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

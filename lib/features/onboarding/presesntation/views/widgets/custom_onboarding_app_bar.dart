@@ -24,7 +24,7 @@ class CustomOnboardingAppBar extends StatelessWidget {
             ).then(
               (value) {
                 if (value) {
-                  GoRouter.of(context).pushReplacement(AppRouter.kSplashView);
+                  GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
                 }
               },
             );

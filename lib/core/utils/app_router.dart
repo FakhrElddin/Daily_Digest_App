@@ -5,18 +5,18 @@ import 'package:daily_digest/features/home/presentation/views/Home_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
-  static const kSplashView = '/splashView';
+  static const kHomeView = '/homeView';
   static final bool _isOnboarding =
       CacheHelper.getData(key: onboardingCacheKey) ?? false;
   static final router = GoRouter(
-    initialLocation: _isOnboarding ? kSplashView : '/',
+    initialLocation: _isOnboarding ? kHomeView : '/',
     routes: [
       GoRoute(
         path: '/',
         builder: (context, state) => const OnboardingView(),
       ),
       GoRoute(
-        path: kSplashView,
+        path: kHomeView,
         builder: (context, state) => const HomeView(),
       ),
     ],

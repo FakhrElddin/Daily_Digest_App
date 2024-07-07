@@ -1,4 +1,4 @@
-import 'package:daily_digest/features/home/presentation/views/widgets/custom_image.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/breaking_news_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class BreakingNewsListView extends StatelessWidget {
@@ -11,7 +11,7 @@ class BreakingNewsListView extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) => const CustomImage(),
+        itemBuilder: (context, index) => const BreakingNewsListViewItem(),
         separatorBuilder: (context, index) => const SizedBox(
           width: 24,
         ),

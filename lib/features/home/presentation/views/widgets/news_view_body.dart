@@ -12,10 +12,11 @@ class NewsViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: CustomScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
                   height: 8,
@@ -28,13 +29,6 @@ class NewsViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-              ],
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
                 Text(
                   'Recommendation',
                   style: Styles.textStyle24.copyWith(
@@ -48,10 +42,13 @@ class NewsViewBody extends StatelessWidget {
             ),
           ),
           const RecommendationListView(),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 40,
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
-

@@ -1,4 +1,4 @@
-import 'package:daily_digest/features/home/presentation/views/widgets/categories_view_body.dart';
+import 'package:daily_digest/features/categories/presentation/views/widgets/categories_view_body.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesView extends StatelessWidget {
@@ -7,7 +7,9 @@ class CategoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: CategoriesViewBody(),
+      body: SafeArea(
+        child: CategoriesViewBody(),
+      ),
     );
   }
 }

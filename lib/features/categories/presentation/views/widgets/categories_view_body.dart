@@ -53,4 +53,3 @@ class CategoriesViewBody extends StatelessWidget {
     );
   }
 }
-

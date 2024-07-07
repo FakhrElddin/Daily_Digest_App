@@ -1,23 +1,33 @@
-import 'package:daily_digest/constants.dart';
-import 'package:daily_digest/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
-  const CustomTextButton({super.key, this.onPressed, required this.text});
+  const CustomTextButton({
+    super.key,
+    this.onPressed,
+    required this.text,
+    this.backgroundColor,
+    this.textStyle,
+    this.foregroundColor, this.shape,
+  });
   final void Function()? onPressed;
   final String text;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
+  final TextStyle? textStyle;
+  final OutlinedBorder? shape;
+
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        foregroundColor: Colors.orange.shade900,
+        foregroundColor: foregroundColor,
+        backgroundColor: backgroundColor,
+        shape: shape,
       ),
       child: Text(
         text,
-        style: Styles.textStyle16.copyWith(
-          color: kPrimaryColor,
-        ),
+        style: textStyle,
       ),
     );
   }

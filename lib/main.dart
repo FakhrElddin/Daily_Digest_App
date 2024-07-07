@@ -1,6 +1,7 @@
 import 'package:daily_digest/constants.dart';
 import 'package:daily_digest/core/utils/app_router.dart';
 import 'package:daily_digest/core/utils/cache_helper.dart';
+import 'package:daily_digest/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -20,6 +21,24 @@ class DailyDigest extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: kBackgroundColor,
+        navigationBarTheme: customNavigationBarTheme(),
+      ),
+    );
+  }
+
+  NavigationBarThemeData customNavigationBarTheme() {
+    return NavigationBarThemeData(
+      backgroundColor: Colors.black,
+      indicatorColor: kPrimaryColor,
+      iconTheme: WidgetStateProperty.resolveWith<IconThemeData>(
+        (states) => const IconThemeData(
+          color: Colors.white,
+        ),
+      ),
+      labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
+        (states) => Styles.textStyle16.copyWith(
+          color: Colors.white,
+        ),
       ),
     );
   }

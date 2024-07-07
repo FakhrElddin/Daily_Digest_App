@@ -37,7 +37,7 @@ class BreakingNewsListViewItemData extends StatelessWidget {
               'title you can write here any thing you want',
               overflow: TextOverflow.ellipsis,
               maxLines: 3,
-              style: Styles.textStyle18.copyWith(
+              style: Styles.textStyle20.copyWith(
                 color: Colors.white,
               ),
             ),

@@ -8,7 +8,7 @@ class BreakingNewsListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const AspectRatio(
-      aspectRatio: 2.9 / 2,
+      aspectRatio: 2.8 / 2,
       child: Stack(
         alignment: Alignment.bottomLeft,
         children: [
@@ -19,4 +19,3 @@ class BreakingNewsListViewItem extends StatelessWidget {
     );
   }
 }
-

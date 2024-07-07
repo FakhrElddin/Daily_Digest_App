@@ -9,7 +9,7 @@ class CustomImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 2.9 / 2,
+      aspectRatio: 2.8 / 2,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: CachedNetworkImage(

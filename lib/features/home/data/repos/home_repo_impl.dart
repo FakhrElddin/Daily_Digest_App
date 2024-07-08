@@ -38,7 +38,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get(
         endPoint:
-            'top-headlines?apiKey=125b3eb6cee749ebb0c4534321ded29d&country=us&category=general',
+            'top-headlines?apiKey=125b3eb6cee749ebb0c4534321ded29d&country=us&category=entertainment',
       );
       NewsModel newsModel = NewsModel.fromJson(data);
       return right(newsModel.articles ?? []);

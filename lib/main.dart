@@ -1,14 +1,19 @@
 import 'package:daily_digest/constants.dart';
+import 'package:daily_digest/core/utils/api_service.dart';
 import 'package:daily_digest/core/utils/app_router.dart';
 import 'package:daily_digest/core/utils/cache_helper.dart';
 import 'package:daily_digest/core/utils/styles.dart';
+import 'package:daily_digest/features/home/data/repos/home_repo_impl.dart';
 import 'package:daily_digest/features/home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
+  HomeRepoImpl homeRepoImpl = HomeRepoImpl(ApiService(Dio()));
+  await homeRepoImpl.fetchBreakingNews();
 
   runApp(const DailyDigest());
 }

@@ -1,9 +1,10 @@
-import 'package:daily_digest/features/home/data/models/news/articles_model.dart';
+
+import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 
 class NewsModel {
   final String? status;
   final int? totalResults;
-  final List<ArticlesModel>? articles;
+  final List<ArticleModel>? articles;
 
   const NewsModel({
     this.status,
@@ -14,11 +15,7 @@ class NewsModel {
     return NewsModel(
       status: json['status'],
       totalResults: json['totalResults'],
-      articles: (json['articles'] as List<dynamic>).map((e) => ArticlesModel.forJson(e)).toList(),
+      articles: (json['articles'] as List<dynamic>).map((e) => ArticleModel.forJson(e)).toList(),
     );
   }
 }
-
-
-
-

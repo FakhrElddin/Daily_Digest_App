@@ -3,3 +3,8 @@ abstract class Failure {
 
   const Failure({required this.errorMessage});
 }
+class ServerFailure extends Failure{
+  ServerFailure({required super.errorMessage});
+  
+  
+}

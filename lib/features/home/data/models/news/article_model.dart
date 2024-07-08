@@ -1,6 +1,6 @@
 import 'package:daily_digest/features/home/data/models/news/source_model.dart';
 
-class ArticlesModel {
+class ArticleModel {
   final SourceModel? source;
   final String? author;
   final String? title;
@@ -10,7 +10,7 @@ class ArticlesModel {
   final String? publishedAt;
   final String? content;
 
-  const ArticlesModel({
+  const ArticleModel({
     this.source,
     this.author,
     this.title,
@@ -21,8 +21,8 @@ class ArticlesModel {
     this.publishedAt,
   });
 
-  factory ArticlesModel.forJson(Map<String, dynamic> json) {
-    return ArticlesModel(
+  factory ArticleModel.forJson(Map<String, dynamic> json) {
+    return ArticleModel(
       source: SourceModel.fromJosn(json['source']),
       author: json['author'],
       title: json['title'],

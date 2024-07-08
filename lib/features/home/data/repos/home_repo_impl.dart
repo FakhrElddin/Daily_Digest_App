@@ -20,7 +20,7 @@ class HomeRepoImpl implements HomeRepo {
 
       NewsModel newsModel = NewsModel.fromJson(data);
 
-      return right(newsModel.articles!);
+      return right(newsModel.articles ?? []);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
@@ -34,8 +34,24 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<ArticleModel>>> fetchRecommendationNews() {
-    // TODO: implement fetchRecommendationNews
-    throw UnimplementedError();
+  Future<Either<Failure, List<ArticleModel>>> fetchRecommendationNews() async {
+    try {
+      var data = await apiService.get(
+        endPoint:
+            'top-headlines?apiKey=125b3eb6cee749ebb0c4534321ded29d&country=us&category=general',
+      );
+      NewsModel newsModel = NewsModel.fromJson(data);
+      return right(newsModel.articles ?? []);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(
+          ServerFailure(
+            errorMessage: e.toString(),
+          ),
+        );
+      }
+    }
   }
 }

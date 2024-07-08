@@ -4,6 +4,7 @@ import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/home/data/models/news/news_model.dart';
 import 'package:daily_digest/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
@@ -21,7 +22,14 @@ class HomeRepoImpl implements HomeRepo {
 
       return right(newsModel.articles!);
     } catch (e) {
-      return left(ServerFailure(errorMessage: 'server error message'));
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(
+        ServerFailure(
+          errorMessage: e.toString(),
+        ),
+      );
     }
   }
 

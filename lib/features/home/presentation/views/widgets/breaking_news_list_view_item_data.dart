@@ -44,7 +44,7 @@ class BreakingNewsListViewItemData extends StatelessWidget {
             Text(
               'Author',
               overflow: TextOverflow.ellipsis,
-              maxLines: 3,
+              maxLines: 1,
               style: Styles.textStyle16.copyWith(
                 color: Colors.grey,
               ),

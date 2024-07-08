@@ -1,5 +1,7 @@
+import 'package:daily_digest/constants.dart';
 import 'package:daily_digest/core/utils/styles.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/breaking_news_list_view.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class BreakingNewsSection extends StatelessWidget {
@@ -25,6 +27,20 @@ class BreakingNewsSection extends StatelessWidget {
           height: 8,
         ),
         const BreakingNewsListView(),
+        const SizedBox(
+          height: 16,
+        ),
+        Center(
+          child: DotsIndicator(
+            decorator: const DotsDecorator(
+              activeColor: kPrimaryColor,
+              size: Size(10, 10),
+              activeSize: Size(16, 16),
+            ),
+            dotsCount: 10,
+            position: 3,
+          ),
+        )
       ],
     );
   }

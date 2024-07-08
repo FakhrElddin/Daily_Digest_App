@@ -2,6 +2,7 @@ import 'package:daily_digest/constants.dart';
 import 'package:daily_digest/core/utils/api_service.dart';
 import 'package:daily_digest/core/utils/app_router.dart';
 import 'package:daily_digest/core/utils/cache_helper.dart';
+import 'package:daily_digest/core/utils/service_locator.dart';
 import 'package:daily_digest/core/utils/styles.dart';
 import 'package:daily_digest/features/home/data/repos/home_repo_impl.dart';
 import 'package:daily_digest/features/home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
@@ -30,7 +31,7 @@ class DailyDigest extends StatelessWidget {
           create: (context) => BottomNavCubit(),
         ),
         BlocProvider(
-          create: (context) => BreakingNewsCubit(HomeRepoImpl(ApiService(Dio()))),
+          create: (context) => BreakingNewsCubit(getIt.get<HomeRepoImpl>()),
         ),
       ],
       child: MaterialApp.router(

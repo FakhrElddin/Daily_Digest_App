@@ -2,9 +2,9 @@ import 'package:daily_digest/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key, this.onPressed});
+  const CustomTextFormField({super.key, this.onPressedSearchIcon});
 
-  final Function()? onPressed;
+  final Function()? onPressedSearchIcon;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -17,7 +17,7 @@ class CustomTextFormField extends StatelessWidget {
           ),
         ),
         suffixIcon: IconButton(
-          onPressed: onPressed,
+          onPressed: onPressedSearchIcon,
           icon: const Icon(
             Icons.search,
             size: 28,

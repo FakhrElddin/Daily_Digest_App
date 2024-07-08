@@ -1,6 +1,5 @@
 import 'package:daily_digest/core/errors/failures.dart';
 import 'package:daily_digest/core/utils/api_service.dart';
-import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/home/data/models/news/news_model.dart';
 import 'package:daily_digest/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
@@ -11,7 +10,7 @@ class HomeRepoImpl implements HomeRepo {
 
   HomeRepoImpl(this.apiService);
   @override
-  Future<Either<Failure, List<ArticleModel>>> fetchBreakingNews() async {
+  Future<Either<Failure, NewsModel>> fetchBreakingNews() async {
     try {
       var data = await apiService.get(
         endPoint:
@@ -20,7 +19,7 @@ class HomeRepoImpl implements HomeRepo {
 
       NewsModel newsModel = NewsModel.fromJson(data);
 
-      return right(newsModel.articles ?? []);
+      return right(newsModel);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
@@ -34,14 +33,14 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<ArticleModel>>> fetchRecommendationNews() async {
+  Future<Either<Failure, NewsModel>> fetchRecommendationNews() async {
     try {
       var data = await apiService.get(
         endPoint:
             'top-headlines?apiKey=125b3eb6cee749ebb0c4534321ded29d&country=us&category=entertainment',
       );
       NewsModel newsModel = NewsModel.fromJson(data);
-      return right(newsModel.articles ?? []);
+      return right(newsModel);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

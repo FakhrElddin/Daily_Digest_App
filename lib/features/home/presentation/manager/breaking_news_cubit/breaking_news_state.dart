@@ -12,9 +12,9 @@ final class BreakingNewsInitial extends BreakingNewsState {}
 final class BreakingNewsLoading extends BreakingNewsState {}
 
 final class BreakingNewsScuccess extends BreakingNewsState {
-  final NewsModel newsModel;
+  final NewsModel news;
 
-  const BreakingNewsScuccess({required this.newsModel});
+  const BreakingNewsScuccess({required this.news});
 }
 
 final class BreakingNewsFailure extends BreakingNewsState {

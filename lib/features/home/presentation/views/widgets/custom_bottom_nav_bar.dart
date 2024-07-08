@@ -15,7 +15,6 @@ class CustomBottomNavBar extends StatelessWidget {
           margin: const EdgeInsets.only(
             left: 50.0,
             right: 50.0,
-            bottom: 30.0,
           ),
           clipBehavior: Clip.antiAliasWithSaveLayer,
           decoration: BoxDecoration(

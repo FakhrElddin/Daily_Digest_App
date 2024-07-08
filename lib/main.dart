@@ -37,8 +37,8 @@ class DailyDigest extends StatelessWidget {
 
   NavigationBarThemeData customNavigationBarTheme() {
     return NavigationBarThemeData(
-      backgroundColor: Colors.black,
-      indicatorColor: kPrimaryColor,
+      backgroundColor: kPrimaryColor,
+      indicatorColor: Colors.black,
       iconTheme: WidgetStateProperty.resolveWith<IconThemeData>(
         (states) => const IconThemeData(
           size: 30,

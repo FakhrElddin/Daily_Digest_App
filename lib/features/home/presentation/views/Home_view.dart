@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
     return BlocBuilder<BottomNavCubit, BottomNavState>(
       builder: (context, state) {
         return Scaffold(
-          bottomNavigationBar: const CustomBottomNavBar(),
+          floatingActionButton: const CustomBottomNavBar(),
           body: SafeArea(
             child: BlocProvider.of<BottomNavCubit>(context)
                 .views[BlocProvider.of<BottomNavCubit>(context).selectedIndex],

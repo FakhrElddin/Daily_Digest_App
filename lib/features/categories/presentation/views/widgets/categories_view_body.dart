@@ -2,6 +2,7 @@ import 'package:daily_digest/core/utils/assets.dart';
 import 'package:daily_digest/features/categories/data/models/category_model.dart';
 import 'package:daily_digest/features/categories/presentation/views/widgets/category_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CategoriesViewBody extends StatelessWidget {
   const CategoriesViewBody({super.key});
@@ -39,17 +40,26 @@ class CategoriesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
+    return CustomScrollView(
       physics: const BouncingScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 1,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-      ),
-      itemBuilder: (context, index) =>
-          CategoryCard(categoreis: categoreis[index]),
-      itemCount: categoreis.length,
+      slivers: [
+        SliverGrid.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 1,
+            mainAxisSpacing: 8,
+            crossAxisSpacing: 8,
+          ),
+          itemBuilder: (context, index) =>
+              CategoryCard(categoreis: categoreis[index]),
+          itemCount: categoreis.length,
+        ),
+        const SliverToBoxAdapter(
+          child: SizedBox(
+            height: 120,
+          ),
+        ),
+      ],
     );
   }
 }

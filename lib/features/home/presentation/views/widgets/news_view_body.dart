@@ -44,7 +44,7 @@ class NewsViewBody extends StatelessWidget {
           const RecommendationListView(),
           const SliverToBoxAdapter(
             child: SizedBox(
-              height: 40,
+              height: 120,
             ),
           ),
         ],

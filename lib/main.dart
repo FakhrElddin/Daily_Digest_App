@@ -14,6 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
+  setupServiceLocator();
   HomeRepoImpl homeRepoImpl = HomeRepoImpl(ApiService(Dio()));
   await homeRepoImpl.fetchBreakingNews();
 
@@ -31,7 +32,8 @@ class DailyDigest extends StatelessWidget {
           create: (context) => BottomNavCubit(),
         ),
         BlocProvider(
-          create: (context) => BreakingNewsCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) =>
+              BreakingNewsCubit(getIt.get<HomeRepoImpl>())..fetchBreakingNews(),
         ),
       ],
       child: MaterialApp.router(

@@ -1,11 +1,12 @@
 import 'package:daily_digest/core/utils/styles.dart';
+import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:flutter/material.dart';
 
 class BreakingNewsListViewItemData extends StatelessWidget {
   const BreakingNewsListViewItemData({
-    super.key,
+    super.key, required this.articleModel,
   });
-
+  final ArticleModel articleModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +35,7 @@ class BreakingNewsListViewItemData extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'title you can write here any thing you want',
+              articleModel.title ?? '',
               overflow: TextOverflow.ellipsis,
               maxLines: 3,
               style: Styles.textStyle20.copyWith(
@@ -42,7 +43,7 @@ class BreakingNewsListViewItemData extends StatelessWidget {
               ),
             ),
             Text(
-              'Author',
+              articleModel.author ?? '',
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               style: Styles.textStyle16.copyWith(

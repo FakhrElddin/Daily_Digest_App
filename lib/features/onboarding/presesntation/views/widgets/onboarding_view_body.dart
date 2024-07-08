@@ -56,7 +56,6 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 bodyText: widget.onboardingItems[index].bodyText,
               ),
               onPageChanged: (value) {
-
                 handlePageChange(value);
                 setState(() {});
               },

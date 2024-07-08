@@ -7,7 +7,8 @@ class CustomTextButton extends StatelessWidget {
     required this.text,
     this.backgroundColor,
     this.textStyle,
-    this.foregroundColor, this.shape,
+    this.foregroundColor,
+    this.shape,
   });
   final void Function()? onPressed;
   final String text;

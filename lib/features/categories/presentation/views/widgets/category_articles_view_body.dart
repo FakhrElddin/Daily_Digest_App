@@ -23,4 +23,3 @@ class CategoryArticlesViewBody extends StatelessWidget {
     );
   }
 }
-

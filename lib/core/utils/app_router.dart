@@ -4,12 +4,14 @@ import 'package:daily_digest/features/categories/category_articles_view.dart';
 import 'package:daily_digest/features/home/presentation/views/article_view.dart';
 import 'package:daily_digest/features/onboarding/presesntation/views/onboarding_view.dart';
 import 'package:daily_digest/features/home/presentation/views/Home_view.dart';
+import 'package:daily_digest/features/search/presentation/view/search_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const kHomeView = '/homeView';
   static const kArticleView = '/articleView';
-  static const kCategoryArticlesView = '/CategoryArticlesView';
+  static const kCategoryArticlesView = '/categoryArticlesView';
+  static const kSearchView = '/searchView';
   static final bool _isOnboarding =
       CacheHelper.getData(key: onboardingCacheKey) ?? false;
   static final router = GoRouter(
@@ -30,6 +32,10 @@ abstract class AppRouter {
       GoRoute(
         path: kCategoryArticlesView,
         builder: (context, state) => const CategoryArticlesView(),
+      ),
+      GoRoute(
+        path: kSearchView,
+        builder: (context, state) => const SearchView(),
       ),
     ],
   );

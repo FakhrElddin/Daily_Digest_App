@@ -15,8 +15,6 @@ class BreakingNewsListView extends StatelessWidget {
           (index) => const BreakingNewsListViewItem(),
         ),
         options: CarouselOptions(
-          height: 400,
-          aspectRatio: 16 / 9,
           viewportFraction: 0.8,
           initialPage: 0,
           enableInfiniteScroll: false,

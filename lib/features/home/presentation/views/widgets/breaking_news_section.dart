@@ -12,10 +12,13 @@ class BreakingNewsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Breaking News',
-          style: Styles.textStyle24.copyWith(
-            fontWeight: FontWeight.bold,
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Text(
+            'Breaking News',
+            style: Styles.textStyle24.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         const SizedBox(

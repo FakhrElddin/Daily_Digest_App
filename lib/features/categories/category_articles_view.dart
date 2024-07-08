@@ -7,7 +7,9 @@ class CategoryArticlesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: CategoryArticlesViewBody(),
+      body: SafeArea(
+        child: CategoryArticlesViewBody(),
+      ),
     );
   }
 }

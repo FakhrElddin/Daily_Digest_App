@@ -26,6 +26,9 @@ class _SearchViewBodyState extends State<SearchViewBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(
+                  height: 8,
+                ),
                 CustomTextFormField(
                   controller: searchConroller,
                   onFieldSubmitted: (value) {
@@ -36,6 +39,7 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                     }
                   },
                   onPressedSearchIcon: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
                     if (searchConroller.text.trim().isNotEmpty) {
                       BlocProvider.of<SearchCubit>(context).fetchSearchResult(
                         text: searchConroller.text,

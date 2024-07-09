@@ -43,9 +43,18 @@ class DailyDigest extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: kBackgroundColor,
           navigationBarTheme: customNavigationBarTheme(),
+          textSelectionTheme: customTextSelectionTheme(),
         ),
       ),
     );
+  }
+
+  TextSelectionThemeData customTextSelectionTheme() {
+    return TextSelectionThemeData(
+          cursorColor: kPrimaryColor,
+          selectionColor: kPrimaryColor.withOpacity(0.5),
+          selectionHandleColor: kPrimaryColor,
+        );
   }
 
   NavigationBarThemeData customNavigationBarTheme() {

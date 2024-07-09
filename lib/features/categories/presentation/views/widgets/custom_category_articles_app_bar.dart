@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomCategoryArticlesAppBar extends StatelessWidget {
-  const CustomCategoryArticlesAppBar({super.key});
+  const CustomCategoryArticlesAppBar({super.key, required this.category});
+
+  final String category;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,8 @@ class CustomCategoryArticlesAppBar extends StatelessWidget {
           const SizedBox(
             width: 30,
           ),
-          const Text(
-            'Entertainmnet ',
+          Text(
+            category,
             style: Styles.textStyle24,
           ),
         ],

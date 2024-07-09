@@ -3,17 +3,20 @@ import 'package:daily_digest/features/categories/presentation/views/widgets/cust
 import 'package:flutter/material.dart';
 
 class CategoryArticlesViewBody extends StatelessWidget {
-  const CategoryArticlesViewBody({super.key});
+  const CategoryArticlesViewBody({super.key, required this.category});
+  final String category;
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      physics: BouncingScrollPhysics(),
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
-          child: CustomCategoryArticlesAppBar(),
+          child: CustomCategoryArticlesAppBar(
+            category: category,
+          ),
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: SizedBox(
             height: 16,
           ),

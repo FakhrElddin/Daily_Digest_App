@@ -37,7 +37,9 @@ abstract class AppRouter {
         path: kCategoryArticlesView,
         builder: (context, state) => BlocProvider(
           create: (context) => CategoryArticlesCubit(getIt.get<CategoryRepoImpl>()),
-          child: const CategoryArticlesView(),
+          child:  CategoryArticlesView(
+            category: state.extra as String,
+          ),
         ),
       ),
       GoRoute(

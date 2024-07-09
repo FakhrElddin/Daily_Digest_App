@@ -8,16 +8,17 @@ import 'package:go_router/go_router.dart';
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
     super.key,
-    required this.categoreis,
+    required this.category,
   });
 
-  final CategoryModel categoreis;
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kCategoryArticlesView);
+        GoRouter.of(context)
+            .push(AppRouter.kCategoryArticlesView, extra: category.name);
       },
       child: Card(
         color: Colors.black,
@@ -30,7 +31,7 @@ class CategoryCard extends StatelessWidget {
                 aspectRatio: 1,
                 child: SvgPicture.asset(
                   fit: BoxFit.fill,
-                  categoreis.icon,
+                  category.icon,
                 ),
               ),
             ),
@@ -38,7 +39,7 @@ class CategoryCard extends StatelessWidget {
               height: 8,
             ),
             Text(
-              categoreis.name,
+              category.name,
               style: Styles.textStyle24.copyWith(
                 color: Colors.white,
               ),

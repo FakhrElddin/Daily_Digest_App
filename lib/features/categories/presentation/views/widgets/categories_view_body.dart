@@ -18,7 +18,7 @@ class CategoriesViewBody extends StatelessWidget {
     ),
     CategoryModel(
       icon: Assets.sprotsCategory,
-      name: 'Sprots',
+      name: 'Sports',
     ),
     CategoryModel(
       icon: Assets.healthCategory,
@@ -51,7 +51,7 @@ class CategoriesViewBody extends StatelessWidget {
             crossAxisSpacing: 8,
           ),
           itemBuilder: (context, index) =>
-              CategoryCard(categoreis: categoreis[index]),
+              CategoryCard(category: categoreis[index]),
           itemCount: categoreis.length,
         ),
         const SliverToBoxAdapter(

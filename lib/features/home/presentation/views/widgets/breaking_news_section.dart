@@ -30,17 +30,7 @@ class BreakingNewsSection extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        Center(
-          child: DotsIndicator(
-            decorator: const DotsDecorator(
-              activeColor: kPrimaryColor,
-              size: Size(10, 10),
-              activeSize: Size(16, 16),
-            ),
-            dotsCount: 10,
-            position: 3,
-          ),
-        )
+        
       ],
     );
   }

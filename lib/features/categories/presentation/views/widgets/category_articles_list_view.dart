@@ -2,6 +2,7 @@ import 'package:daily_digest/core/widgets/custom_error_widget.dart';
 import 'package:daily_digest/core/widgets/custom_progress_indicator.dart';
 import 'package:daily_digest/features/categories/presentation/manager/category_articles_cubit/category_articles_cubit.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_recommendation_item.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/recommendation_news_shimer_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,8 +30,10 @@ class CategoryArticlesListView extends StatelessWidget {
             ),
           );
         } else {
-          return const SliverToBoxAdapter(
-            child: CustomProgressIndicator(),
+          return SliverList.builder(
+            itemBuilder: (context, index) =>
+                const RecommendationNewsShimmerItem(),
+            itemCount: 10,
           );
         }
       },

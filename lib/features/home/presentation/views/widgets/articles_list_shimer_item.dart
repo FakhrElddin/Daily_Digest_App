@@ -1,3 +1,4 @@
+import 'package:daily_digest/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -16,8 +17,8 @@ class ArticlesListShimmerItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Shimmer.fromColors(
-            baseColor: Colors.grey.withOpacity(0.8),
-            highlightColor: Colors.grey,
+            baseColor: shimmerBaseColor,
+            highlightColor: shimmerHighlightColor,
             child: Row(
               children: [
                 AspectRatio(

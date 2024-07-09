@@ -1,3 +1,4 @@
+import 'package:daily_digest/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -9,8 +10,8 @@ class ImageShimmerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey.withOpacity(0.4),
-      highlightColor: Colors.grey.withOpacity(0.1),
+      baseColor: shimmerBaseColor,
+      highlightColor: shimmerHighlightColor,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.grey,

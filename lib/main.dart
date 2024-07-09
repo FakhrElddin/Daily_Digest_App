@@ -1,5 +1,4 @@
 import 'package:daily_digest/constants.dart';
-import 'package:daily_digest/core/utils/api_service.dart';
 import 'package:daily_digest/core/utils/app_router.dart';
 import 'package:daily_digest/core/utils/cache_helper.dart';
 import 'package:daily_digest/core/utils/service_locator.dart';
@@ -8,7 +7,6 @@ import 'package:daily_digest/features/home/data/repos/home_repo_impl.dart';
 import 'package:daily_digest/features/home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:daily_digest/features/home/presentation/manager/breaking_news_cubit/breaking_news_cubit.dart';
 import 'package:daily_digest/features/home/presentation/manager/recommendation_news_cubit/recommendation_news_cubit.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,9 +14,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   setupServiceLocator();
-  HomeRepoImpl homeRepoImpl = HomeRepoImpl(ApiService(Dio()));
-  await homeRepoImpl.fetchBreakingNews();
-
   runApp(const DailyDigest());
 }
 
@@ -38,7 +33,8 @@ class DailyDigest extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) =>
-              RecommendationNewsCubit(getIt.get<HomeRepoImpl>())..fetchRecommendationNews(),
+              RecommendationNewsCubit(getIt.get<HomeRepoImpl>())
+                ..fetchRecommendationNews(),
         ),
       ],
       child: MaterialApp.router(

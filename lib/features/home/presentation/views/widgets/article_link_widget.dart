@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 
 class ArticleLinkWidget extends StatelessWidget {
   const ArticleLinkWidget({
-    super.key, required this.url,
+    super.key,
+    this.onPressed,
   });
 
-  final String url;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class ArticleLinkWidget extends StatelessWidget {
       width: double.infinity,
       height: 60,
       child: CustomTextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),

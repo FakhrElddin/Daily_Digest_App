@@ -1,5 +1,7 @@
 import 'package:daily_digest/constants.dart';
 import 'package:daily_digest/core/utils/functions/format_date_time.dart';
+import 'package:daily_digest/core/utils/functions/launch_cutom_url.dart';
+import 'package:daily_digest/core/utils/functions/show_toast_message.dart';
 import 'package:daily_digest/core/utils/styles.dart';
 import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/article_link_widget.dart';
@@ -78,7 +80,20 @@ class ArticleViewBody extends StatelessWidget {
           ),
         ),
         ArticleLinkWidget(
-          url: articleModel.url ?? '',
+          onPressed: () {
+            if (articleModel.url == null) {
+              launchCustomUrl(
+                context,
+                url: articleModel.url!,
+              );
+            } else {
+              showToastMessage(
+                context,
+                message: 'There is no link to this article',
+                state: ToastStates.error,
+              );
+            }
+          },
         ),
       ],
     );

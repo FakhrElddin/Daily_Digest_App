@@ -26,9 +26,10 @@ class ArticleModel {
       source: SourceModel.fromJosn(json['source']),
       author: json['author'],
       title: json['title'],
-      discription: json['discription'],
+      discription: json['description'],
       url: json['url'],
       urlToImage: json['urlToImage'],
+      publishedAt: json['publishedAt'],
       content: json['content'],
     );
   }

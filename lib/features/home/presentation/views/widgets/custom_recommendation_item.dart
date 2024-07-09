@@ -5,6 +5,7 @@ import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 
 class CustomRecommendationItem extends StatelessWidget {
   const CustomRecommendationItem({super.key, required this.articleModel});
@@ -58,8 +59,9 @@ class CustomRecommendationItem extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
+                      if(articleModel.publishedAt != null)
                       Text(
-                        'published at: ${articleModel.publishedAt}',
+                        'published at: ${getFormatedDateTime()}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle14.copyWith(
@@ -75,5 +77,12 @@ class CustomRecommendationItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String getFormatedDateTime() {
+    DateTime dateTime = DateTime.parse(articleModel.publishedAt!);
+    String format = DateFormat('MMMM d, h:mm a').format(dateTime);
+
+    return format;
   }
 }

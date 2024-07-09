@@ -7,6 +7,7 @@ import 'package:daily_digest/core/utils/styles.dart';
 import 'package:daily_digest/features/home/data/repos/home_repo_impl.dart';
 import 'package:daily_digest/features/home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:daily_digest/features/home/presentation/manager/breaking_news_cubit/breaking_news_cubit.dart';
+import 'package:daily_digest/features/home/presentation/manager/recommendation_news_cubit/recommendation_news_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,6 +35,10 @@ class DailyDigest extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               BreakingNewsCubit(getIt.get<HomeRepoImpl>())..fetchBreakingNews(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              RecommendationNewsCubit(getIt.get<HomeRepoImpl>()),
         ),
       ],
       child: MaterialApp.router(

@@ -38,7 +38,7 @@ class DailyDigest extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) =>
-              RecommendationNewsCubit(getIt.get<HomeRepoImpl>()),
+              RecommendationNewsCubit(getIt.get<HomeRepoImpl>())..fetchRecommendationNews(),
         ),
       ],
       child: MaterialApp.router(

@@ -7,7 +7,8 @@ class CategoryArticlesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList.separated(
-      itemBuilder: (context, index) => const CustomRecommendationItem(),
+      itemBuilder: (context, index) =>
+          const SizedBox(), //CustomRecommendationItem(),
       separatorBuilder: (context, index) => const SizedBox(
         height: 24,
       ),

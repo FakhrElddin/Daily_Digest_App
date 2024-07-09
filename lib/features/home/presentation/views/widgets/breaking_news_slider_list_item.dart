@@ -1,3 +1,4 @@
+import 'package:daily_digest/constants.dart';
 import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/breaking_news_list_view_item_data.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/breaking_news_slider_image.dart';
@@ -12,8 +13,7 @@ class BreakingNewsSliderListItem extends StatelessWidget {
       alignment: Alignment.bottomLeft,
       children: [
         BreakingNewsSliderImage(
-          image: articleModel.urlToImage ??
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqFCoRXJUYOf5KOJxf69wQ_VM4bKsPW-itNyUel0ZwiXN0AnP7Vx0yDZK7soCYQbScUvU&usqp=CAU',
+          image: articleModel.urlToImage ?? defaultArticleImage,
         ),
         BreakingNewsListViewItemData(
           articleModel: articleModel,

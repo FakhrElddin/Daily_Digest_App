@@ -1,11 +1,15 @@
+import 'package:daily_digest/constants.dart';
 import 'package:daily_digest/core/utils/app_router.dart';
 import 'package:daily_digest/core/utils/styles.dart';
+import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomRecommendationItem extends StatelessWidget {
-  const CustomRecommendationItem({super.key});
+  const CustomRecommendationItem({super.key, required this.articleModel});
+
+  final ArticleModel articleModel;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,9 @@ class CustomRecommendationItem extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                const CustomImage(),
+                CustomImage(
+                  image: articleModel.urlToImage ?? defaultArticleImage,
+                ),
                 const SizedBox(
                   width: 8,
                 ),
@@ -33,7 +39,7 @@ class CustomRecommendationItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Every thing is free try to visit this country Every thing is free try to visit this country Every thing is free try to visit this country',
+                        articleModel.title ?? '',
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle18.copyWith(
@@ -44,7 +50,7 @@ class CustomRecommendationItem extends StatelessWidget {
                         height: 8,
                       ),
                       Text(
-                        'this country make you happy when try to buy anything',
+                        articleModel.discription ?? '',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle16.copyWith(
@@ -53,7 +59,7 @@ class CustomRecommendationItem extends StatelessWidget {
                       ),
                       const Spacer(),
                       Text(
-                        'published at: 3:20 AM',
+                        'published at: ${articleModel.publishedAt}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle14.copyWith(

@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 class CustomImage extends StatelessWidget {
   const CustomImage({
-    super.key,
+    super.key, required this.image,
   });
+
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class CustomImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         child: CachedNetworkImage(
           imageUrl:
-              'https://m.media-amazon.com/images/I/91II+F1H7LL._AC_UY327_FMwebp_QL65_.jpg',
+              image,
           fit: BoxFit.fill,
         ),
       ),

@@ -18,7 +18,8 @@ class HomeRepoImpl implements HomeRepo {
       );
 
       NewsModel newsModel = NewsModel.fromJson(data);
-
+      newsModel.articles!
+          .removeWhere((article) => article.title!.contains('[Removed]'));
       return right(newsModel);
     } catch (e) {
       if (e is DioException) {
@@ -40,6 +41,8 @@ class HomeRepoImpl implements HomeRepo {
             'top-headlines?apiKey=125b3eb6cee749ebb0c4534321ded29d&country=us&category=entertainment',
       );
       NewsModel newsModel = NewsModel.fromJson(data);
+      newsModel.articles!
+          .removeWhere((article) => article.title!.contains('[Removed]'));
       return right(newsModel);
     } catch (e) {
       if (e is DioException) {

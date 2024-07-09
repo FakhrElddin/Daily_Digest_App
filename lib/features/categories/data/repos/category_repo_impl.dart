@@ -19,6 +19,8 @@ class CategoryRepoImpl implements CategoryRepo {
             'top-headlines?apiKey=125b3eb6cee749ebb0c4534321ded29d&country=us&category=$category',
       );
       NewsModel newsModel = NewsModel.fromJson(data);
+      newsModel.articles!
+          .removeWhere((article) => article.title!.contains('[Removed]'));
       return right(newsModel);
     } catch (e) {
       if (e is DioException) {

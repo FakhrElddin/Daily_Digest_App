@@ -14,9 +14,11 @@ class RecommendationListView extends StatelessWidget {
       builder: (context, state) {
         if (state is RecommendationNewsSuccess) {
           return SliverList.separated(
-            itemBuilder: (context, index) => CustomArticleItem(
-              articleModel: state.news.articles![index],
-            ),
+            itemBuilder: (context, index) {
+              return CustomArticleItem(
+                articleModel: state.news.articles![index],
+              );
+            },
             separatorBuilder: (context, index) => const SizedBox(
               height: 24,
             ),

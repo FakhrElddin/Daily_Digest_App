@@ -1,10 +1,19 @@
 import 'package:daily_digest/core/utils/styles.dart';
+import 'package:daily_digest/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:daily_digest/features/search/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:daily_digest/features/search/presentation/view/widgets/search_result_list_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SearchViewBody extends StatelessWidget {
+class SearchViewBody extends StatefulWidget {
   const SearchViewBody({super.key});
+
+  @override
+  State<SearchViewBody> createState() => _SearchViewBodyState();
+}
+
+class _SearchViewBodyState extends State<SearchViewBody> {
+  TextEditingController searchConroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +27,21 @@ class SearchViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomTextFormField(
-                  onPressedSearchIcon: () {},
+                  controller: searchConroller,
+                  onFieldSubmitted: (value) {
+                    if (searchConroller.text.trim().isNotEmpty) {
+                      BlocProvider.of<SearchCubit>(context).fetchSearchResult(
+                        text: searchConroller.text,
+                      );
+                    }
+                  },
+                  onPressedSearchIcon: () {
+                    if (searchConroller.text.trim().isNotEmpty) {
+                      BlocProvider.of<SearchCubit>(context).fetchSearchResult(
+                        text: searchConroller.text,
+                      );
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: 24,

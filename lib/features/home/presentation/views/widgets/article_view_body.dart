@@ -1,11 +1,16 @@
+import 'package:daily_digest/constants.dart';
+import 'package:daily_digest/core/utils/functions/format_date_time.dart';
 import 'package:daily_digest/core/utils/styles.dart';
+import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/article_link_widget.dart';
-import 'package:daily_digest/features/home/presentation/views/widgets/article_view_image.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_article_view_app_bar.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 
 class ArticleViewBody extends StatelessWidget {
-  const ArticleViewBody({super.key});
+  const ArticleViewBody({super.key, required this.articleModel});
+
+  final ArticleModel articleModel;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +29,7 @@ class ArticleViewBody extends StatelessWidget {
                     height: 16,
                   ),
                   Text(
-                    'Every thing is free try to visit this country Every thing is free try to visit this country Every thing is free try to visit this country',
+                    articleModel.title ?? '',
                     style: Styles.textStyle24.copyWith(
                       fontWeight: FontWeight.w900,
                     ),
@@ -35,30 +40,34 @@ class ArticleViewBody extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'Author Name',
+                        articleModel.author ?? '',
                         style: Styles.textStyle20.copyWith(
                           fontWeight: FontWeight.w500,
                           color: Colors.grey,
                         ),
                       ),
                       const Spacer(),
-                      Text(
-                        'Published At: 3:15 AM',
-                        style: Styles.textStyle18.copyWith(
-                          color: Colors.grey,
+                      if (articleModel.publishedAt != null)
+                        Text(
+                          'Published At: ${getFormatedDateTime(articleModel.publishedAt!)}',
+                          style: Styles.textStyle18.copyWith(
+                            color: Colors.grey,
+                          ),
                         ),
-                      ),
                     ],
                   ),
                   const SizedBox(
                     height: 8,
                   ),
-                  const ArticleViewImage(),
+                  CustomImage(
+                    image: articleModel.urlToImage ?? defaultArticleImage,
+                  ),
                   const SizedBox(
                     height: 8,
                   ),
                   Text(
-                    'Every thing is free try to visit this country Every thing is free try to visit this country Every thing is free try to visit this country',
+                    (articleModel.discription ?? '') +
+                        (articleModel.content ?? ''),
                     style: Styles.textStyle24.copyWith(
                       fontWeight: FontWeight.normal,
                     ),
@@ -68,7 +77,9 @@ class ArticleViewBody extends StatelessWidget {
             ),
           ),
         ),
-        const ArticleLinkWidget()
+        ArticleLinkWidget(
+          url: articleModel.url ?? '',
+        ),
       ],
     );
   }

@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 
 class ArticleLinkWidget extends StatelessWidget {
   const ArticleLinkWidget({
-    super.key,
+    super.key, required this.url,
   });
+
+  final String url;
 
   @override
   Widget build(BuildContext context) {

@@ -1,11 +1,11 @@
 import 'package:daily_digest/constants.dart';
 import 'package:daily_digest/core/utils/app_router.dart';
+import 'package:daily_digest/core/utils/functions/format_date_time.dart';
 import 'package:daily_digest/core/utils/styles.dart';
 import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 
 class CustomArticleItem extends StatelessWidget {
   const CustomArticleItem({super.key, required this.articleModel});
@@ -16,7 +16,10 @@ class CustomArticleItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kArticleView);
+        GoRouter.of(context).push(
+          AppRouter.kArticleView,
+          extra: articleModel,
+        );
       },
       child: SizedBox(
         height: 160,
@@ -61,7 +64,7 @@ class CustomArticleItem extends StatelessWidget {
                       const Spacer(),
                       if (articleModel.publishedAt != null)
                         Text(
-                          'published at: ${getFormatedDateTime()}',
+                          'published at: ${getFormatedDateTime(articleModel.publishedAt!)}',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: Styles.textStyle14.copyWith(
@@ -77,12 +80,5 @@ class CustomArticleItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String getFormatedDateTime() {
-    DateTime dateTime = DateTime.parse(articleModel.publishedAt!);
-    String format = DateFormat('MMMM d, h:mm a').format(dateTime);
-
-    return format;
   }
 }

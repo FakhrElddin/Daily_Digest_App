@@ -1,17 +1,17 @@
 import 'package:daily_digest/constants.dart';
-import 'package:daily_digest/features/home/presentation/views/widgets/custom_carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class CustomDotsIndicator extends StatelessWidget {
   const CustomDotsIndicator({
     super.key,
-    required this.widget,
-    required this.currentPosition,
+    
+    required this.position, required this.dotsCount,
   });
 
-  final CustomCarouselSlider widget;
-  final int currentPosition;
+  
+  final int dotsCount;
+  final int position;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class CustomDotsIndicator extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        dotsCount: widget.newsModel.articles?.length ?? 0,
-        position: currentPosition,
+        dotsCount: dotsCount,
+        position: position,
       ),
     );
   }

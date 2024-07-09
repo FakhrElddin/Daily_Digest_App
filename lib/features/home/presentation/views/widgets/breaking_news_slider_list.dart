@@ -1,12 +1,13 @@
 import 'package:daily_digest/core/utils/styles.dart';
-import 'package:daily_digest/core/widgets/custom_progress_indicator.dart';
 import 'package:daily_digest/features/home/presentation/manager/breaking_news_cubit/breaking_news_cubit.dart';
-import 'package:daily_digest/features/home/presentation/views/widgets/custom_carousel_slider.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/breaking_news_shimmer_slider_list.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/carousel_slider_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BreakingNewsSliderList extends StatelessWidget {
   const BreakingNewsSliderList({super.key});
+  final bool x = false;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +15,9 @@ class BreakingNewsSliderList extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.29,
       child: BlocBuilder<BreakingNewsCubit, BreakingNewsState>(
         builder: (context, state) {
-          if (state is BreakingNewsScuccess) {
-            return CustomCarouselSlider(newsModel: state.news);
-          } else if (state is BreakingNewsFailure) {
+          if (state is BreakingNewsScuccess && x) {
+            return CarouselSliderList(newsModel: state.news);
+          } else if (state is BreakingNewsFailure && x) {
             return Center(
               child: Text(
                 state.errorMessage,
@@ -25,10 +26,12 @@ class BreakingNewsSliderList extends StatelessWidget {
               ),
             );
           } else {
-            return const CustomProgressIndicator();
+            return const BreakingNewsShimmerSliderList();
           }
         },
       ),
     );
   }
 }
+
+

@@ -14,7 +14,7 @@ class CategoriesViewBody extends StatelessWidget {
     ),
     CategoryModel(
       icon: Assets.bussinessCategory,
-      name: 'Bussiness',
+      name: 'Business',
     ),
     CategoryModel(
       icon: Assets.sprotsCategory,

@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
-class CustomRecommendationItem extends StatelessWidget {
-  const CustomRecommendationItem({super.key, required this.articleModel});
+class CustomArticleItem extends StatelessWidget {
+  const CustomArticleItem({super.key, required this.articleModel});
 
   final ArticleModel articleModel;
 
@@ -59,15 +59,15 @@ class CustomRecommendationItem extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      if(articleModel.publishedAt != null)
-                      Text(
-                        'published at: ${getFormatedDateTime()}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Styles.textStyle14.copyWith(
-                          color: Colors.grey.shade500,
+                      if (articleModel.publishedAt != null)
+                        Text(
+                          'published at: ${getFormatedDateTime()}',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Styles.textStyle14.copyWith(
+                            color: Colors.grey.shade500,
+                          ),
                         ),
-                      ),
                     ],
                   ),
                 ),

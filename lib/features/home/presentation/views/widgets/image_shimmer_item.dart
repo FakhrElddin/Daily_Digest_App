@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class BreakingNewsShimmerItem extends StatelessWidget {
-  const BreakingNewsShimmerItem({
+class ImageShimmerItem extends StatelessWidget {
+  const ImageShimmerItem({
     super.key,
   });
 

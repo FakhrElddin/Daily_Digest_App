@@ -1,8 +1,7 @@
 import 'package:daily_digest/core/widgets/custom_error_widget.dart';
-import 'package:daily_digest/core/widgets/custom_progress_indicator.dart';
 import 'package:daily_digest/features/categories/presentation/manager/category_articles_cubit/category_articles_cubit.dart';
-import 'package:daily_digest/features/home/presentation/views/widgets/custom_recommendation_item.dart';
-import 'package:daily_digest/features/home/presentation/views/widgets/recommendation_news_shimer_item.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/custom_article_item.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/articles_list_shimer_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,7 +14,7 @@ class CategoryArticlesListView extends StatelessWidget {
       builder: (context, state) {
         if (state is CategoryArticlesSuccess) {
           return SliverList.separated(
-            itemBuilder: (context, index) => CustomRecommendationItem(
+            itemBuilder: (context, index) => CustomArticleItem(
               articleModel: state.news.articles![index],
             ),
             separatorBuilder: (context, index) => const SizedBox(
@@ -31,8 +30,7 @@ class CategoryArticlesListView extends StatelessWidget {
           );
         } else {
           return SliverList.builder(
-            itemBuilder: (context, index) =>
-                const RecommendationNewsShimmerItem(),
+            itemBuilder: (context, index) => const ArticlesListShimmerItem(),
             itemCount: 10,
           );
         }

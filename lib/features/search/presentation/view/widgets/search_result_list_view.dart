@@ -1,4 +1,4 @@
-import 'package:daily_digest/features/home/presentation/views/widgets/custom_recommendation_item.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/custom_article_item.dart';
 import 'package:flutter/material.dart';
 
 class SearchResultListView extends StatelessWidget {

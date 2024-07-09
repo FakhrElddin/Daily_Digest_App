@@ -1,4 +1,4 @@
-import 'package:daily_digest/features/home/presentation/views/widgets/breaking_news_shimmer_item.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/image_shimmer_item.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_carousel_slider.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +23,7 @@ class _BreakingNewsShimmerSliderListState
         CustomCarouselSlider(
           items: List.generate(
             10,
-            (index) => const BreakingNewsShimmerItem(),
+            (index) => const ImageShimmerItem(),
           ),
           onPageChanged: (index, reason) {
             currentPosition = index;
@@ -41,4 +41,3 @@ class _BreakingNewsShimmerSliderListState
     );
   }
 }
-

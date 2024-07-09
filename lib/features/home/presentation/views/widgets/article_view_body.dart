@@ -38,25 +38,20 @@ class ArticleViewBody extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        articleModel.author ?? '',
-                        style: Styles.textStyle20.copyWith(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      const Spacer(),
-                      if (articleModel.publishedAt != null)
-                        Text(
-                          'Published At: ${getFormatedDateTime(articleModel.publishedAt!)}',
-                          style: Styles.textStyle18.copyWith(
-                            color: Colors.grey,
-                          ),
-                        ),
-                    ],
+                  Text(
+                    articleModel.author ?? '',
+                    style: Styles.textStyle20.copyWith(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
+                    ),
                   ),
+                  if (articleModel.publishedAt != null)
+                    Text(
+                      'Published At: ${getFormatedDateTime(articleModel.publishedAt!)}',
+                      style: Styles.textStyle18.copyWith(
+                        color: Colors.grey,
+                      ),
+                    ),
                   const SizedBox(
                     height: 8,
                   ),
@@ -71,6 +66,9 @@ class ArticleViewBody extends StatelessWidget {
                     style: Styles.textStyle24.copyWith(
                       fontWeight: FontWeight.normal,
                     ),
+                  ),
+                  const SizedBox(
+                    height: 30,
                   ),
                 ],
               ),

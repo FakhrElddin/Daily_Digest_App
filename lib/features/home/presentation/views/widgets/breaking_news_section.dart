@@ -1,7 +1,5 @@
-import 'package:daily_digest/constants.dart';
 import 'package:daily_digest/core/utils/styles.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/breaking_news_slider_list.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class BreakingNewsSection extends StatelessWidget {

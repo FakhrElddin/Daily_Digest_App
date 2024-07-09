@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:daily_digest/core/widgets/custom_progress_indicator.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/breaking_news_shimmer_item.dart';
 import 'package:flutter/material.dart';
 
-class Sliderimage extends StatelessWidget {
-  const Sliderimage({
+class BreakingNewsSliderImage extends StatelessWidget {
+  const BreakingNewsSliderImage({
     super.key,
     required this.image,
   });
@@ -14,9 +14,9 @@ class Sliderimage extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: CachedNetworkImage(
-        height: MediaQuery.of(context).size.height * 0.25,
+        height: MediaQuery.of(context).size.height * 0.29,
         imageUrl: image,
-        placeholder: (context, url) => const CustomProgressIndicator(),
+        placeholder: (context, url) => const BreakingNewsShimmerItem(),
         fit: BoxFit.fill,
         width: double.infinity,
       ),

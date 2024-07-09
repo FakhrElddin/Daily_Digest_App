@@ -1,7 +1,7 @@
+import 'package:daily_digest/features/home/presentation/views/widgets/breaking_news_shimmer_item.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_carousel_slider.dart';
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer/shimmer.dart';
 
 class BreakingNewsShimmerSliderList extends StatefulWidget {
   const BreakingNewsShimmerSliderList({
@@ -23,16 +23,7 @@ class _BreakingNewsShimmerSliderListState
         CustomCarouselSlider(
           items: List.generate(
             10,
-            (index) => Shimmer.fromColors(
-              baseColor: Colors.grey.withOpacity(0.4),
-              highlightColor: Colors.grey.withOpacity(0.1),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-            ),
+            (index) => const BreakingNewsShimmerItem(),
           ),
           onPageChanged: (index, reason) {
             currentPosition = index;
@@ -50,3 +41,4 @@ class _BreakingNewsShimmerSliderListState
     );
   }
 }
+

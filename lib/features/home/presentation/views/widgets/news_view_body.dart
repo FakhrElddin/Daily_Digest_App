@@ -24,9 +24,6 @@ class NewsViewBody extends StatelessWidget {
                 height: 30,
               ),
               const BreakingNewsSection(),
-              const SizedBox(
-                height: 40,
-              ),
               Padding(
                 padding: const EdgeInsets.only(
                   left: 16.0,

@@ -4,18 +4,19 @@ import 'package:daily_digest/features/home/presentation/views/widgets/custom_car
 import 'package:daily_digest/features/home/presentation/views/widgets/custom_dots_indicator.dart';
 import 'package:flutter/material.dart';
 
-class CarouselSliderList extends StatefulWidget {
-  const CarouselSliderList({
+class CustomCarouselSliderList extends StatefulWidget {
+  const CustomCarouselSliderList({
     super.key,
     required this.newsModel,
   });
   final NewsModel newsModel;
 
   @override
-  State<CarouselSliderList> createState() => _CarouselSliderListState();
+  State<CustomCarouselSliderList> createState() =>
+      _CustomCarouselSliderListState();
 }
 
-class _CarouselSliderListState extends State<CarouselSliderList> {
+class _CustomCarouselSliderListState extends State<CustomCarouselSliderList> {
   int currentPosition = 0;
   @override
   Widget build(BuildContext context) {
@@ -44,4 +45,3 @@ class _CarouselSliderListState extends State<CarouselSliderList> {
     );
   }
 }
-

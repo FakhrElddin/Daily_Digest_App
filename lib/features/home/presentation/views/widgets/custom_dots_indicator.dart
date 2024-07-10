@@ -6,17 +6,19 @@ class CustomDotsIndicator extends StatelessWidget {
   const CustomDotsIndicator({
     super.key,
     
-    required this.position, required this.dotsCount,
+    required this.position, required this.dotsCount, this.onTap,
   });
 
   
   final int dotsCount;
   final int position;
+  final Function(int position)? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: DotsIndicator(
+        onTap: onTap,
         decorator: DotsDecorator(
           activeColor: kPrimaryColor,
           size: const Size.square(10),

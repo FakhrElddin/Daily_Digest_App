@@ -46,11 +46,13 @@ class _CustomCarouselSliderListState extends State<CustomCarouselSliderList> {
           dotsCount: widget.newsModel.articles?.length ?? 0,
           position: currentPosition,
           onTap: (position) {
-            currentPosition = position;
-            carouselController.jumpToPage(
-              position,
-            );
-            setState(() {});
+            if (position != currentPosition) {
+              currentPosition = position;
+              carouselController.jumpToPage(
+                position,
+              );
+              setState(() {});
+            }
           },
         ),
       ],

@@ -16,18 +16,7 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
-    Future.delayed(
-      const Duration(
-        seconds: 2,
-      ),
-      () {
-        if (CacheHelper.getData(key: onboardingCacheKey) ?? false) {
-          GoRouter.of(context).pushReplacement(AppRouter.kMainView);
-        } else {
-          GoRouter.of(context).pushReplacement(AppRouter.kOnboardingView);
-        }
-      },
-    );
+    navigation();
     super.initState();
   }
 
@@ -58,6 +47,21 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           ],
         ),
       ],
+    );
+  }
+
+  void navigation() {
+    Future.delayed(
+      const Duration(
+        seconds: 2,
+      ),
+      () {
+        if (CacheHelper.getData(key: onboardingCacheKey) ?? false) {
+          GoRouter.of(context).pushReplacement(AppRouter.kMainView);
+        } else {
+          GoRouter.of(context).pushReplacement(AppRouter.kOnboardingView);
+        }
+      },
     );
   }
 }

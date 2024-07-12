@@ -7,9 +7,9 @@ import 'package:daily_digest/features/categories/presentation/manager/category_a
 import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/bottom_nav_bar/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:daily_digest/features/home/presentation/views/article_view.dart';
-import 'package:daily_digest/features/home/presentation/views/news_view.dart';
+import 'package:daily_digest/features/home/presentation/views/home_view.dart';
 import 'package:daily_digest/features/onboarding/presesntation/views/onboarding_view.dart';
-import 'package:daily_digest/features/bottom_nav_bar/presentation/views/Home_view.dart';
+import 'package:daily_digest/features/bottom_nav_bar/presentation/views/main_view.dart';
 import 'package:daily_digest/features/search/data/repos/search_repo_impl.dart';
 import 'package:daily_digest/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:daily_digest/features/search/presentation/view/search_view.dart';
@@ -18,7 +18,7 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const kMainView = '/mainView';
-  static const kNewsView = '/newsView';
+  static const kHomeView = '/homeView';
   static const kArticleView = '/articleView';
   static const kCategoryArticlesView = '/categoryArticlesView';
   static const kSearchView = '/searchView';
@@ -46,8 +46,8 @@ abstract class AppRouter {
         ),
       ),
       GoRoute(
-        path: kNewsView,
-        builder: (context, state) => const NewsView(),
+        path: kHomeView,
+        builder: (context, state) => const HomeView(),
       ),
       GoRoute(
         path: kCategoryArticlesView,

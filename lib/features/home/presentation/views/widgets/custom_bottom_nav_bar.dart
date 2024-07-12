@@ -32,7 +32,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 icon: Icon(
                   Icons.newspaper_outlined,
                 ),
-                label: 'News',
+                label: 'Home',
               ),
               NavigationDestination(
                 icon: Icon(

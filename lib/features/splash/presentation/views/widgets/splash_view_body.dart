@@ -33,16 +33,18 @@ class _SplashViewBodyState extends State<SplashViewBody> {
               width: MediaQuery.of(context).size.width * 0.8,
             )
                 .animate()
-                .fadeIn(
-                  begin: 0.8,
-                  delay: 500.ms,
-                )
-                .slide(
-                  delay: 500.ms,
+                .fade(
+                  begin: 0.1,
+                  end: 1,
+                  duration: const Duration(
+                    milliseconds: 1000,
+                  ),
                 )
                 .then()
                 .shake(
-                  delay: 500.ms,
+                  duration: const Duration(
+                    milliseconds: 400,
+                  ),
                 ),
           ],
         ),

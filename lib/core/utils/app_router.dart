@@ -7,6 +7,7 @@ import 'package:daily_digest/features/categories/presentation/manager/category_a
 import 'package:daily_digest/features/home/data/models/news/article_model.dart';
 import 'package:daily_digest/features/bottom_nav_bar/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:daily_digest/features/home/presentation/views/article_view.dart';
+import 'package:daily_digest/features/home/presentation/views/news_view.dart';
 import 'package:daily_digest/features/onboarding/presesntation/views/onboarding_view.dart';
 import 'package:daily_digest/features/bottom_nav_bar/presentation/views/Home_view.dart';
 import 'package:daily_digest/features/search/data/repos/search_repo_impl.dart';
@@ -17,6 +18,7 @@ import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
   static const kMainView = '/mainView';
+  static const kNewsView = '/newsView';
   static const kArticleView = '/articleView';
   static const kCategoryArticlesView = '/categoryArticlesView';
   static const kSearchView = '/searchView';
@@ -42,6 +44,10 @@ abstract class AppRouter {
         builder: (context, state) => ArticleView(
           articleModel: state.extra as ArticleModel,
         ),
+      ),
+      GoRoute(
+        path: kNewsView,
+        builder: (context, state) => const NewsView(),
       ),
       GoRoute(
         path: kCategoryArticlesView,

@@ -1,4 +1,4 @@
-import 'package:daily_digest/features/home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
+import 'package:daily_digest/features/bottom_nav_bar/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +25,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 BlocProvider.of<BottomNavCubit>(context).selectedIndex,
             onDestinationSelected: (value) {
               BlocProvider.of<BottomNavCubit>(context)
-                  .changeSelectedItem(index: value);
+                  .changeSelectedView(index: value);
             },
             destinations: const [
               NavigationDestination(

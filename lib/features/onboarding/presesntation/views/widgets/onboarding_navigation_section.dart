@@ -55,7 +55,7 @@ class OnboardingNavigationSection extends StatelessWidget {
             if (isLast) {
               CacheHelper.setData(key: onboardingCacheKey, value: true)
                   .then((value) {
-                GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+                GoRouter.of(context).pushReplacement(AppRouter.kMainView);
               });
             }
             onboardingController.nextPage(

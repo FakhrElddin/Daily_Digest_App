@@ -5,4 +5,4 @@ sealed class BottomNavState {}
 
 final class BottomNavInitial extends BottomNavState {}
 
-final class BottomNavChangeSelectedItem extends BottomNavState {}
+final class BottomNavChangeSelectedView extends BottomNavState {}

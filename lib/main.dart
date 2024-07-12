@@ -4,7 +4,6 @@ import 'package:daily_digest/core/utils/cache_helper.dart';
 import 'package:daily_digest/core/utils/service_locator.dart';
 import 'package:daily_digest/core/utils/styles.dart';
 import 'package:daily_digest/features/home/data/repos/home_repo_impl.dart';
-import 'package:daily_digest/features/home/presentation/manager/bottom_nav_cubit/bottom_nav_cubit.dart';
 import 'package:daily_digest/features/home/presentation/manager/breaking_news_cubit/breaking_news_cubit.dart';
 import 'package:daily_digest/features/home/presentation/manager/recommendation_news_cubit/recommendation_news_cubit.dart';
 import 'package:flutter/material.dart';
@@ -24,9 +23,6 @@ class DailyDigest extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => BottomNavCubit(),
-        ),
         BlocProvider(
           create: (context) =>
               BreakingNewsCubit(getIt.get<HomeRepoImpl>())..fetchBreakingNews(),
@@ -51,10 +47,10 @@ class DailyDigest extends StatelessWidget {
 
   TextSelectionThemeData customTextSelectionTheme() {
     return TextSelectionThemeData(
-          cursorColor: kPrimaryColor,
-          selectionColor: kPrimaryColor.withOpacity(0.5),
-          selectionHandleColor: kPrimaryColor,
-        );
+      cursorColor: kPrimaryColor,
+      selectionColor: kPrimaryColor.withOpacity(0.5),
+      selectionHandleColor: kPrimaryColor,
+    );
   }
 
   NavigationBarThemeData customNavigationBarTheme() {

@@ -29,8 +29,11 @@ class CategoryArticlesListView extends StatelessWidget {
             ),
           );
         } else {
-          return SliverList.builder(
+          return SliverList.separated(
             itemBuilder: (context, index) => const ArticlesListShimmerItem(),
+            separatorBuilder: (context, index) => const SizedBox(
+              height: 24,
+            ),
             itemCount: 10,
           );
         }

@@ -1,5 +1,3 @@
-import 'package:daily_digest/constants.dart';
-import 'package:daily_digest/core/utils/cache_helper.dart';
 import 'package:daily_digest/core/utils/service_locator.dart';
 import 'package:daily_digest/features/categories/category_articles_view.dart';
 import 'package:daily_digest/features/categories/data/repos/category_repo_impl.dart';
@@ -13,23 +11,27 @@ import 'package:daily_digest/features/bottom_nav_bar/presentation/views/main_vie
 import 'package:daily_digest/features/search/data/repos/search_repo_impl.dart';
 import 'package:daily_digest/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:daily_digest/features/search/presentation/view/search_view.dart';
+import 'package:daily_digest/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
+  static const kSplashView = '/splashView';
+  static const kOnboardingView = '/onboaringView';
   static const kMainView = '/mainView';
   static const kHomeView = '/homeView';
   static const kArticleView = '/articleView';
   static const kCategoryArticlesView = '/categoryArticlesView';
   static const kSearchView = '/searchView';
 
-  static final bool _isOnboarding =
-      CacheHelper.getData(key: onboardingCacheKey) ?? false;
   static final router = GoRouter(
-    initialLocation: _isOnboarding ? kMainView : '/',
     routes: [
       GoRoute(
         path: '/',
+        builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
       ),
       GoRoute(

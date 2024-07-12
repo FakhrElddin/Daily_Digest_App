@@ -4,8 +4,8 @@ import 'package:daily_digest/features/home/presentation/views/widgets/custom_app
 import 'package:daily_digest/features/home/presentation/views/widgets/recommendation_list_view.dart';
 import 'package:flutter/material.dart';
 
-class NewsViewBody extends StatelessWidget {
-  const NewsViewBody({super.key});
+class HomeViewBody extends StatelessWidget {
+  const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

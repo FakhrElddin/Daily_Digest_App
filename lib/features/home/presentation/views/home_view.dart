@@ -1,4 +1,4 @@
-import 'package:daily_digest/features/home/presentation/views/widgets/news_view_body.dart';
+import 'package:daily_digest/features/home/presentation/views/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,7 +7,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: NewsViewBody(),
+      body: HomeViewBody(),
     );
   }
 }

@@ -43,8 +43,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return Column(
         children: [
           const CustomOnboardingAppBar(),
           Expanded(
@@ -75,8 +74,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             height: 50,
           ),
         ],
-      ),
-    );
+      );
   }
 
   void handlePageChange(int value) {

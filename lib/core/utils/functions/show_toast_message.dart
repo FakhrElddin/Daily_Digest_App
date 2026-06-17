@@ -6,13 +6,13 @@ void showToastMessage(
   context, {
   required String message,
   required ToastStates state,
-  Widget Function(BuildContext, Widget)? positionedToastBuilder,
+  PositionedToastBuilder? positionedToastBuilder,
 }) {
   FToast fToast = FToast();
   fToast.init(context);
 
   fToast.showToast(
-    isDismissable: true,
+    isDismissible: true,
     gravity: ToastGravity.BOTTOM,
     toastDuration: const Duration(seconds: 5),
     child: Container(

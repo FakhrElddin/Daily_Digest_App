@@ -20,7 +20,7 @@ class CustomCarouselSliderList extends StatefulWidget {
 class _CustomCarouselSliderListState extends State<CustomCarouselSliderList> {
   int currentPosition = 0;
 
-  final CarouselController carouselController = CarouselController();
+  final CarouselSliderController carouselController = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {

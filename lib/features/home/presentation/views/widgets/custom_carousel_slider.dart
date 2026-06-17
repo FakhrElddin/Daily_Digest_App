@@ -12,7 +12,7 @@ class CustomCarouselSlider extends StatelessWidget {
   final Function(int index, CarouselPageChangedReason reason)? onPageChanged;
 
   final List<Widget>? items;
-  final CarouselController? carouselController;
+  final CarouselSliderController? carouselController;
 
   @override
   Widget build(BuildContext context) {
